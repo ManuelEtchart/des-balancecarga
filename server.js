@@ -8,8 +8,8 @@ const {fork} = require('child_process')
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-const {faker} = require('@faker-js/faker')
-const Memoria = require('./src/contenedores/contenedorMemoria.js')
+const {faker} = require('@faker-js/faker');
+const Memoria = require('./src/contenedores/contenedorMemoria.js');
 
 const app = express();
 
@@ -23,11 +23,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 //app.use(express.static('public'));
 
-const hds = require('express-handlebars');
+const hbs = require('express-handlebars');
 
 app.set('views', path.join(path.dirname(''), 'src/views'));
 
-app.engine('.hbs', hds.engine({
+app.engine('.hbs', hbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
