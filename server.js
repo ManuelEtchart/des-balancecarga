@@ -132,26 +132,25 @@ app.post('/api/mensajes', (req,res) =>{
 });
 
 app.get('/info', (req,res)=>{
-
-    res.render('info', {
-        argsEnt: process.argv.slice(2),
-        nomPlat: process.platform,
-        verNode: process.version,
-        memToRev: JSON.stringify(process.memoryUsage().rss),
-        pathExe: process.execPath,
-        procId: process.pid,
-        carProy: process.cwd()
-    })
+   res.render('info', {
+      argsEnt: process.argv.slice(2),
+      nomPlat: process.platform,
+      verNode: process.version,
+      memToRev: JSON.stringify(process.memoryUsage().rss),
+      pathExe: process.execPath,
+      procId: process.pid,
+      carProy: process.cwd()
+   })
 })
 
 app.get('/api/randoms', (req,res) => {
-    console.log('no bloqueante antes')
-    const randoms = fork('./random.js')
-    randoms.send({query: req.query.cant})
-    randoms.on('message', randoms =>{
-        res.render('random', {random: JSON.stringify(randoms)})
-    })
-    console.log('no bloqueante despues')
+   console.log('no bloqueante antes')
+   const randoms = fork('./random.js')
+   randoms.send({query: req.query.cant})
+   randoms.on('message', randoms =>{
+      res.render('random', {random: JSON.stringify(randoms)})
+   })
+   console.log('no bloqueante despues')
 })
 
 
