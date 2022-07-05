@@ -194,7 +194,7 @@ if(MODO_CLUSTER && cluster.isMaster) {
 
 //Segunda parte del desafío  SERVIDORES NGINX
 
-   // Primera parte cluster desde modulo cluster sin nginx
+   
 
 
 if(MODO_CLUSTER && cluster.isMaster) {
@@ -312,5 +312,4 @@ if(MODO_CLUSTER && cluster.isMaster) {
 
 
 
-      //Segunda parte cluster de servidores desde nginx EN PROGRESO...
 
